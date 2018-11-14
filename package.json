@@ -4,7 +4,8 @@
   "description": "Pandora Core JS Library",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "grunt test",
+    "build": "grunt run"
   },
   "repository": {
     "type": "git",
