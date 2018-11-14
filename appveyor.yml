@@ -1,0 +1,57 @@
+image: ubuntu1804
+
+skip_tags: true
+pull_requests:
+  do_not_increment_build_number: true
+
+cache:
+- dist
+- reports
+- node_modules  -> package.json
+
+stack:
+  node 10
+
+# Install scripts. (runs after repo cloning)
+install:
+  # install npm
+  - npm install
+
+before_test:
+  # dumping out the verions of the frameworks that we use.
+  - node --version
+  - npm --version
+
+test_script:
+  # run tests
+  - npm test
+
+after_test:
+  # send coverage reports
+  - npm run coverage-report
+
+version: 1.0.0 build{build}
+
+build_script:
+  # build
+  - npm run dist
+
+artifacts:
+  - path: ./artifacts/pandora.core.zip
+    name: pandora.core
+  - path: ./artifacts/reports.zip
+    name: reports
+
+deploy:
+  - provider: GitHub
+    tag: pandora.core-$(APPVEYOR_BUILD_VERSION)
+    release: pandora.core-$(APPVEYOR_BUILD_VERSION)
+    description: Pandora Core JS Library $(APPVEYOR_BUILD_VERSION) Pre-Release (non-production)
+    auth_token:
+      secure: ndkuivO71VqKbXrYDz3tYhXF7qvfY3ZLCYYQv4gp/06BjS3Q+uS6d54bmn97UFvk
+    artifact: pandora.core
+    draft: false
+    prerelease: true
+    force_update: true
+    on:
+      branch: production
