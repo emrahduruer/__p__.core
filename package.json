@@ -6,7 +6,7 @@
   "scripts": {
     "test": "grunt test",
     "dist": "grunt dist",
-    "coverage-report": "grunt cov-rep",
+    "coverage-report": "grunt cov-rep"
   },
   "repository": {
     "type": "git",
