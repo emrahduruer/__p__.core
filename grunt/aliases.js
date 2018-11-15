@@ -35,8 +35,6 @@ module.exports = {
 		'copy:dist',
 		'usebanner:assets',
 		'zip:dist',
-		'mkdir:artifacts',
-		'copy:artifact_dist'
 	],
 
 	'default' : [
