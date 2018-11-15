@@ -28,7 +28,7 @@ test_script:
 
 after_test:
   # send coverage reports
-  - npm run coverage-report
+  #- npm run coverage-report
 
 version: 1.0.0 build{build}
 
