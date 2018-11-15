@@ -5,8 +5,6 @@ module.exports = {
 	'test' : [
 		'karma:unit',
 		'zip:reports',
-		'mkdir:artifacts',
-		'copy:artifact_reports'
 	],
 
 	'cov-rep' : [
