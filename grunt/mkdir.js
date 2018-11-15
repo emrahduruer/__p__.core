@@ -8,7 +8,6 @@ module.exports = function() {
         	options: {
                 create: [
                 	'<%= directories.today_dist %>',
-                	'<%= directories.deployment %>/build<%= pkg.buildnumber %>/'
                 ]
             },
         },
